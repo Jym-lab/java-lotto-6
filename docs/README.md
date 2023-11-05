@@ -67,11 +67,10 @@ MVC 패턴에 기반하여 구조를 변경한다. DB를 다루지 않으니 Mod
 
 ### domain - 당첨 로또 관리(Lotto)
 - 입력된 로또 번호가 정상인지 검출 후 저장 (constructor)
-- 로또 번호가 6개 이상인지 검사 (validate)
+- 로또 번호가 6개 이상이거나 5개 이하인지 검사 (validate)
 - 당첨 로또 값에 중복 값이 있는지 검사 (validateDuplicate)
 - 당첨 로또 입력 값이 입력 범위를 초과 하였는지 검사 (validateRange)
 - 숫자가 아닌 값 입력 검사 - 스페이스, 문자열 포함 (validateNumber)
-- 연속 콤마 입력으로 인한 String 값이 비어있는지 검사 (validateEmpty)
 - 보너스 번호가 당첨 로또에 있는지 검사 (validateBouns)
 - 당첨 로또 번호 조회 (getWinningLotto)
 ### domain - 로또 당첨 판별(LottoResult)
