@@ -1,5 +1,7 @@
 package lotto.domain;
 
+import lotto.view.ErrorMessage;
+
 public class UserAmount {
     private final int LOTTO_PRICE = 1_000;
     private final int amount;
@@ -16,20 +18,20 @@ public class UserAmount {
         try {
             return Integer.parseInt(amount);
         } catch (NumberFormatException e){
-            System.out.println("[ERROR]");
+            ErrorMessage.numberError();
             throw new IllegalArgumentException();
         }
     }
 
     private void validateNegative(int amount){
         if (amount <= 0){
-            System.out.println("[ERROR]");
+            ErrorMessage.negativeError();
             throw new IllegalArgumentException();
         }
     }
     private void validateDivide(int amount) {
         if (amount % LOTTO_PRICE != 0){
-            System.out.println("[ERROR]");
+            ErrorMessage.divisibleError();
             throw new IllegalArgumentException();
         }
     }
