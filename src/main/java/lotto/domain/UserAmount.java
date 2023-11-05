@@ -18,20 +18,20 @@ public class UserAmount {
         try {
             return Integer.parseInt(amount);
         } catch (NumberFormatException e){
-            ErrorMessage.numberError();
+            ErrorMessage.NOT_A_NUMBER.print();
             throw new IllegalArgumentException();
         }
     }
 
     private void validateNegative(int amount){
         if (amount <= 0){
-            ErrorMessage.negativeError();
+            ErrorMessage.NEGATIVE_NUMBER.print();
             throw new IllegalArgumentException();
         }
     }
     private void validateDivide(int amount) {
         if (amount % LOTTO_PRICE != 0){
-            ErrorMessage.divisibleError();
+            ErrorMessage.NOT_DIVISIBLE_NUMBER.print();
             throw new IllegalArgumentException();
         }
     }
