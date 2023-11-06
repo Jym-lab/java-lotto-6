@@ -45,4 +45,22 @@ class LottoTest {
         assertThatThrownBy(() -> new Lotto(List.of(1,2,3,4,5)))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @DisplayName("보너스 번호가 입력 범위를 벗어났다면 예외가 발생한다.")
+    @Test
+    void createBounsNumberOutOfRange(){
+        Lotto lotto = new Lotto(List.of(1,2,3,4,5,6));
+        assertThatThrownBy(() -> lotto.validateBonusRange(100))
+                .isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> lotto.validateBonusRange(-1))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @DisplayName("보너스 번호가 당첨 번호 리스트에 있다면 예외가 발생한다.")
+    @Test
+    void createBounsNumberDuplicate(){
+        Lotto lotto = new Lotto(List.of(1,2,3,4,5,6));
+        assertThatThrownBy(() -> lotto.validateBonusDuplicate(6))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }

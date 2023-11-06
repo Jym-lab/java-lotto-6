@@ -44,7 +44,21 @@ public class Lotto {
         }
     }
 
-    public List<Integer> getWinningNumbers(){
+    public void validateBonusRange(int bonus){
+        if (bonus > LOTTO_MAX_NUMBER || bonus < LOTTO_MIN_NUMBER){
+            ErrorMessage.NUMBER_OUT_OF_RANGE.print();
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public void validateBonusDuplicate(int bonus){
+        if (this.numbers.contains(bonus)){
+            ErrorMessage.DUPLICATED_NUMBER.print();
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public List<Integer> getLottoNumbers(){
         return this.numbers;
     }
 }
