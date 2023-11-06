@@ -1,7 +1,5 @@
 package lotto.domain;
 
-import lotto.Lotto;
-import lotto.domain.UserAmount;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
