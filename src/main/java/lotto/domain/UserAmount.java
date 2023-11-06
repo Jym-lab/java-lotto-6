@@ -5,22 +5,13 @@ import lotto.view.ErrorMessage;
 public class UserAmount {
     private final int LOTTO_PRICE = 1_000;
     private final int amount;
-    public UserAmount (String amount){
-        int tmp = validateNumber(amount);
-        validateNegative(tmp);
-        validateDivide(tmp);
-        this.amount = tmp;
+    public UserAmount (int amount){
+        validateNegative(amount);
+        validateDivide(amount);
+        this.amount = amount;
     }
     public int lottoCount() {
         return this.amount/LOTTO_PRICE;
-    }
-    private int validateNumber(String amount){
-        try {
-            return Integer.parseInt(amount);
-        } catch (NumberFormatException e){
-            ErrorMessage.NOT_A_NUMBER.print();
-            throw new IllegalArgumentException();
-        }
     }
 
     private void validateNegative(int amount){
