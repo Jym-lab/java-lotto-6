@@ -24,6 +24,7 @@ public class Lotto {
 
     private void validate(List<Integer> numbers) {
         if (numbers.size() != 6) {
+            ErrorMessage.LOTTO_SIZE_EXCEPTION.print();
             throw new IllegalArgumentException();
         }
     }
