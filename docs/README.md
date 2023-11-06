@@ -55,12 +55,12 @@ MVC 패턴에 기반하여 구조를 변경한다. DB를 다루지 않으니 Mod
 - 입력받은 금액이 음수인지 (validateNegative)
 
 ### domain - 당첨금 Java Enum(Rank)
-- FIRST (6, 2_000_000_000) - 6개 일치
-- SECOND (5, 30_000_000) - 5개 일치 && 보너스볼 일치
-- THIRD (5, 1_500_000) - 5개 일치
-- FOURTH (4, 50_000) - 4개 일치
-- FIFTH (3, 5_000) - 3개 일치
-- MISS (0, 0) - 당첨 실패
+- FIRST ((6, false), 2_000_000_000) - 6개 일치
+- SECOND ((5, true), 30_000_000) - 5개 일치 && 보너스볼 일치
+- THIRD ((5, false), 1_500_000) - 5개 일치
+- FOURTH ((4, false), 50_000) - 4개 일치
+- FIFTH ((3, false), 5_000) - 3개 일치
+- MISS ((0, false), 0) - 당첨 실패
 
 ### domain - 로또 번호 생성(LottoGenerator)
 - 1에서 45사이의 중복없는 n개의 로또 티켓 생성 (generate)
