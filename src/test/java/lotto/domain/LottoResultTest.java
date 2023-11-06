@@ -15,30 +15,35 @@ public class LottoResultTest {
         Assertions.assertEquals(Rank.FIRST,
                 winngingLotto.compareLotto(new Lotto(List.of(1, 9, 16, 19, 33, 42))));
     }
+
     @DisplayName("2등")
     @Test
     void lottoSecond() {
         Assertions.assertEquals(Rank.SECOND,
                 winngingLotto.compareLotto(new Lotto(List.of(1, 5, 9, 16, 19, 33))));
     }
+
     @DisplayName("3등")
     @Test
     void lottoThird() {
         Assertions.assertEquals(Rank.THIRD,
                 winngingLotto.compareLotto(new Lotto(List.of(1, 9, 16, 19, 33, 44))));
     }
+
     @DisplayName("4등")
     @Test
     void lottoFourth() {
         Assertions.assertEquals(Rank.FOURTH,
                 winngingLotto.compareLotto(new Lotto(List.of(1, 9, 16, 19, 35, 44))));
     }
+
     @DisplayName("5등")
     @Test
     void lottoFifth() {
         Assertions.assertEquals(Rank.FIFTH,
                 winngingLotto.compareLotto(new Lotto(List.of(1, 9, 16, 22, 35, 44))));
     }
+
     @DisplayName("미당첨")
     @Test
     void lottoMiss() {

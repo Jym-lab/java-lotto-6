@@ -29,37 +29,37 @@ public class Lotto {
         }
     }
 
-    private void validateDuplicate(List<Integer> numbers){
-        if (numbers.stream().distinct().count() < numbers.size()){
+    private void validateDuplicate(List<Integer> numbers) {
+        if (numbers.stream().distinct().count() < numbers.size()) {
             ErrorMessage.DUPLICATED_NUMBER.print();
             throw new IllegalArgumentException();
         }
     }
 
-    private void validateRange(List<Integer> numbers){
+    private void validateRange(List<Integer> numbers) {
         boolean isOver = numbers.stream().anyMatch(num -> num > LOTTO_MAX_NUMBER);
         boolean isUnder = numbers.stream().anyMatch(num -> num < LOTTO_MIN_NUMBER);
-        if (isOver || isUnder){
+        if (isOver || isUnder) {
             ErrorMessage.NUMBER_OUT_OF_RANGE.print();
             throw new IllegalArgumentException();
         }
     }
 
-    public void validateBonusRange(int bonus){
-        if (bonus > LOTTO_MAX_NUMBER || bonus < LOTTO_MIN_NUMBER){
+    public void validateBonusRange(int bonus) {
+        if (bonus > LOTTO_MAX_NUMBER || bonus < LOTTO_MIN_NUMBER) {
             ErrorMessage.NUMBER_OUT_OF_RANGE.print();
             throw new IllegalArgumentException();
         }
     }
 
-    public void validateBonusDuplicate(int bonus){
-        if (this.numbers.contains(bonus)){
+    public void validateBonusDuplicate(int bonus) {
+        if (this.numbers.contains(bonus)) {
             ErrorMessage.DUPLICATED_NUMBER.print();
             throw new IllegalArgumentException();
         }
     }
 
-    public List<Integer> getLottoNumbers(){
+    public List<Integer> getLottoNumbers() {
         return this.numbers;
     }
 }
