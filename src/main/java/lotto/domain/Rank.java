@@ -15,19 +15,33 @@ public enum Rank {
      * FIFTH ((3, false), 5_000) - 3개 일치
      * MISS ((0, false), 0) - 당첨 실패
      */
-    FIRST((matchCount, bonus) -> matchCount == 6, 2_000_000_000),
-    SECOND((matchCount, bonus) -> matchCount == 5 && bonus, 30_000_000),
-    THIRD((matchCount, bonus) -> matchCount == 5 && !bonus, 1_500_000),
-    FOURTH((matchCount, bonus) -> matchCount == 4, 50_000),
-    FIFTH((matchCount, bonus) -> matchCount == 3, 5_000),
-    MISS((matchCount, bonus) -> matchCount < 3, 0);
+    FIRST((matchCount, bonus) -> matchCount == 6,
+            2_000_000_000,
+            "6개 일치"),
+    SECOND((matchCount, bonus) -> matchCount == 5 && bonus,
+            30_000_000,
+            "5개 일치, 보너스 볼 일치"),
+    THIRD((matchCount, bonus) -> matchCount == 5 && !bonus,
+            1_500_000,
+            "5개 일치"),
+    FOURTH((matchCount, bonus) -> matchCount == 4,
+            50_000,
+            "4개 일치"),
+    FIFTH((matchCount, bonus) -> matchCount == 3,
+            5_000,
+            "3개 일치"),
+    MISS((matchCount, bonus) -> matchCount < 3,
+            0,
+            "2개 일치");
 
     private final BiPredicate<Integer, Boolean> condition;
-    private int winningAmount;
+    private final int winningAmount;
+    private final String message;
 
-    Rank(BiPredicate<Integer, Boolean> condition, int winningAmount) {
+    Rank(BiPredicate<Integer, Boolean> condition, int winningAmount, String message) {
         this.condition = condition;
         this.winningAmount = winningAmount;
+        this.message = message;
     }
 
     public static Rank searchRank(int matchCount, boolean isBonus) {
@@ -35,5 +49,13 @@ public enum Rank {
                 .filter(rank -> rank.condition.test(matchCount, isBonus))
                 .findAny()
                 .orElseThrow(IllegalArgumentException::new);
+    }
+
+    public int getWinningAmount() {
+        return this.winningAmount;
+    }
+
+    public String getMessage(){
+        return this.message;
     }
 }
