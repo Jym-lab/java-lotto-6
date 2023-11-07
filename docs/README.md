@@ -75,7 +75,7 @@ MVC 패턴에 기반하여 구조를 변경한다. DB를 다루지 않으니 Mod
 - 로또가 당첨과 몇개 일치하는지 검사하고 Rank 리턴 (match)
 ### controller - 로또 프로그램 실행(LottoController)
 - 로또 앱 실행 (run)
-- 당첨 수익률 계산 (calculrateRevenuePer)
+- 당첨 수익률 계산 (calculateRateReturn)
 ---
 ## ✍ TestCode 작성
 ### 1. 사용자 입력
