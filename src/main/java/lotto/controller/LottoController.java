@@ -13,14 +13,19 @@ public class LottoController {
     private final int LOTTO_PRICE = 1000;
     private final double PERCENTAGE = 100;
     public void run() {
-        var userAmount = new UserAmount(InputView.inputAmount());
+        UserAmount userAmount;
+        List<Lotto> lottoList;
+        Lotto winningNumbers;
+        int bonus;
+
+        userAmount = new UserAmount(InputView.inputAmount());
         OutputView.printLottoCount(userAmount.lottoCount());
 
-        var lottoList = createRandomLotto(userAmount.lottoCount());
+        lottoList = createRandomLotto(userAmount.lottoCount());
         OutputView.printLottoList(lottoList);
 
-        var winningNumbers = new Lotto(InputView.inputWinningNumbers());
-        int bonus = InputView.inputBonusNumber();
+        winningNumbers = new Lotto(InputView.inputWinningNumbers());
+        bonus = InputView.inputBonusNumber();
         validateBonus(winningNumbers, bonus);
         lottoResult(lottoList, new LottoResult(winningNumbers, bonus), userAmount);
     }
